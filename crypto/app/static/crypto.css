@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px 15px;
+}
+
+
+.opbox{
+    border: 1px solid rgb(38, 38, 38);
+    height: 54%;
+    padding: 6rem;
+    
+}
+.optionsbox{
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 55%;
+    /* left: 25%; */
+    width: 100%;
+    left: 0;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.ulclass{
+    text-decoration: none;
+    list-style: none;
+}
+.numinput{
+    width: 100%;
+}

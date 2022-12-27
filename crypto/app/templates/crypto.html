@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block crypto %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{message}}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+{% endfor %}
+<div class="box">
+    <form action="{% url 'cryption' %}" method="POST">
+        {% csrf_token %}
+        <div class="ip ">
+            <textarea name="uinput" id="uinput" cols="30" rows="10" class="uinput" placeholder="Enter value to encrypt"></textarea><br>
+            <input type="text" name="cipher_input"  class="numinput vnumip" id="numinput" style="opacity: 0;" >
+        </div>
+        <div class="optionsbox">
+            <div class="optionlist">
+                <ul class="ulclass">
+                    <li>
+    
+                        <select id="cipher_ip" name="opt" class="selector">
+                            <option selected>Cipher</option>
+                            <option value="opt1" >Caesar Cipher</option>
+                            <option value="opt2" >Vigenere Cipher </option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="radio" value="opt3" id="morse_code" name="opt" >
+                        <label for="morse_code">Morse Code</label>
+                    </li>
+                    <li>
+                        <input type="radio" value="opt4" id="inverse_code" name="opt" >
+                        <label for="inverse_code">Inverse Casing</label>
+                    </li>
+                    <li>
+                        <input type="radio" value="opt5" id="base64_code" name="opt" >
+                        <label for="base64_code">Base64 Encoding and Decoding</label>
+                    </li>
+                    <li>
+                        <input type="radio" value="opt6" id="camel_code" name="opt" >
+                        <label for="camel_code">Convert CamelCase to snake_case</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-outline-primary  " name="encode_btn">Encode</button>
+                <button class="btn btn-outline-primary decode_btn" name="decode_btn">Decode</button>
+            </div>
+
+
+        </div>
+    </form>
+    <div class="op ">
+        {% comment %} <textarea name="uinput" id="uinput" cols="30" rows="10" placeholder="Your output will be here">{{coded_op}}</textarea> {% endcomment %}
+         <div class="container opbox">
+            {{coded_op}}
+        </div>
+        {% if somekey_flag %}
+            <p class="somekey">KEY : {{vigenere_key}}</p>
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock crypto %}
+
