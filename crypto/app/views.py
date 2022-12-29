@@ -8,9 +8,10 @@ from django.contrib import messages
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
-         return render(request,"crypto.html")
+         return render(request,"crypto.html",{'title':"main-page"})
     else:
-        return redirect("login")
+        return render(request,"home.html",{'title':"home-page"})
+
 
 
 @login_required
@@ -94,7 +95,7 @@ def login(request):
             messages.warning(request,"Invalid Credential")
             return redirect("login")
     else:
-        return render(request,"login.html")
+        return render(request,"login.html",{'title':"login-page"})
 
 @login_required
 def logout(request):
@@ -125,5 +126,5 @@ def signup(request):
             return redirect("login")
         else:
             return render(request,"signup.html",{"messages":message})
-    return render(request,"signup.html")
+    return render(request,"signup.html",{'title':"signup-page"})
 
