@@ -7,6 +7,11 @@
 </div>
 
 {% endfor %}
+<div class="container">
+  <p>Test Login : </p>
+  <p>Username : testuser</p>
+  <p>Password : userpassword</p>
+</div>
 <div class="container mt-5">
   <form method="POST" action={% url 'login' %}>
     {% csrf_token %}
